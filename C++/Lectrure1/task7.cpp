@@ -23,4 +23,7 @@ n/=2;
 }
 std::cout<<std::endl;
 
+// another soultion
+    
+ std::cout<<std::bitset<8>(n);
 }
