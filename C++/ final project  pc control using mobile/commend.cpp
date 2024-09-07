@@ -62,3 +62,7 @@ void Command::restart() {
         std::cerr << "Failed to restart the system." << std::endl;
     }
 }
+void Command::openSettings() {
+    system("gnome-control-center &");
+}
+
