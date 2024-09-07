@@ -31,7 +31,7 @@ bool ServerController::socket_init() {
 
 bool ServerController::server_listen() {
     int b=listen(socket_id, 5);
-    if ( b< 1) {
+    if ( b < -1) {
         std::cerr << "Can not listen." << std::endl;
         return false;
     }
@@ -53,6 +53,14 @@ bool ServerController::server_send(const std::string &message) {
     send(client_id, message.data(), message.size(), 0);
     return true;
 }
+
+void ServerController::trim_end(std::string& str) {
+    str.erase(
+        std::find_if(str.rbegin(), str.rend(), [](unsigned char ch) {
+            return !std::isspace(ch);
+        }).base(), str.end());
+}
+
 
 std::string ServerController::server_read() {
     ssize_t bytes_read = recv(client_id,static_cast<void*>(buffer.data()), buffer.size(), 0);
