@@ -7,6 +7,8 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <array>
+#include <algorithm>  // For std::find_if
+#include <cctype>     // For std::isspace
 
 class ServerController {
     private:
@@ -25,6 +27,10 @@ class ServerController {
         void close_listeing();
         void close_listeing_client();
         void close_server();
+        void trim_end(std::string& str);
+    
+
+
 
 };
 
