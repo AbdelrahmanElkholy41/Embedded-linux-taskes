@@ -12,6 +12,7 @@ public:
     void openYouTube();
     void shutdown();
     void restart();
+    void openSettings();
 };
 
 #endif // COMMAND_HPP
